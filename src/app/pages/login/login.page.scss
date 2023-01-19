@@ -1,0 +1,87 @@
+ion-content {
+  // --background: url("../../../assets/back-login.jpg") center/cover;
+  --background: rgb(166, 227, 153);
+  --background: linear-gradient(
+    215deg,
+    rgba(166, 227, 153, 1) 16%,
+    rgba(5, 182, 203, 1) 66%,
+    rgba(250, 125, 109, 1) 66%
+  );
+  min-height: 100%;
+
+  .upper {
+    margin-top: 1rem;
+    text-align: center;
+    h1 {
+      font-family: monospace;
+      text-align: center;
+      text-shadow: 1px 1px 2px #000;
+      font-weight: bolder;
+    }
+  }
+  .middle {
+    padding: 20px;
+    min-height: 90vh;
+
+    .box {
+      border-radius: 10px;
+      border: 1px solid #444;
+      box-shadow: 2px 2px 8px #444;
+      padding: 20px;
+      // background: black;
+      background: rgba(167, 227, 153, 0.527);
+      background: linear-gradient(
+        215deg,
+        rgba(167, 227, 153, 0.548) 16%,
+        rgba(5, 183, 203, 0.527) 66%,
+        rgba(250, 125, 109, 0.527) 66%
+      );
+
+      p {
+        font-family: monospace;
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: bold;
+        text-align: center;
+        text-shadow: 1px 1px 2px #000;
+      }
+
+      ion-item {
+        color: #000;
+        --background: rgba(255, 255, 255, 0.582);
+        font-family: monospace;
+        ion-icon {
+          color: rgba(5, 182, 203, 1);
+          margin-top: 2rem;
+        }
+      }
+
+      .btn {
+        display: flex;
+        justify-content: center;
+        --text-shadow: 1px 1px 2px #000;
+
+        ion-button {
+          font-family: monospace;
+          --background: rgb(235, 76, 55);
+          width: 70vw;
+          font-weight: bold;
+          --text-shadow: 1px 1px 2px #000;
+          --box-shadow: 2px 2px 4px #000;
+        }
+      }
+
+      hr {
+        border: 1px solid rgb(0, 0, 0) !important;
+        height: 5px !important;
+        width: 50% !important;
+        background: rgb(66, 65, 65) !important;
+        display: block !important;
+        border-radius: 10px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}

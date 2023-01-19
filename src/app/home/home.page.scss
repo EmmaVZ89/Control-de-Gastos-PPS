@@ -1,0 +1,85 @@
+ion-content {
+  --background: rgb(166, 227, 153);
+  --background: linear-gradient(
+    215deg,
+    rgba(166, 227, 153, 1) 16%,
+    rgba(5, 182, 203, 1) 66%,
+    rgba(250, 125, 109, 1) 66%
+  );
+  position: relative;
+}
+
+.btn-menu {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px #000;
+}
+
+.img-back {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.4;
+  top: 20%;
+}
+
+// VISTAS ANIMALES
+.img-animal-vert {
+  width: 10rem;
+  height: 10rem;
+  border: 5px double #fff;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px #000;
+}
+.img-animal-vert:active {
+  transform: scale(0.9);
+  box-shadow: 0 0 16px rgb(240, 0, 0);
+  transition: transform 0.3s;
+}
+
+.img-animal-hor {
+  border: 5px double #fff;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  box-shadow: 3px 3px 3px #000;
+  border-radius: 10px;
+}
+.img-animal-hor:active {
+  transform: scale(0.9);
+  box-shadow: 0 0 16px rgb(240, 0, 0);
+  transition: transform 0.3s;
+}
+
+.grid-vertical-animales {
+  height: 89%;
+  display: flex;
+  flex-flow: column;
+}
+
+.grid-horizontal-animales {
+  height: 89%;
+  display: flex;
+  flex-flow: column;
+}
+
+@media (min-height: 600px) {
+  .grid-vertical-animales {
+    display: flex;
+  }
+  .grid-horizontal-animales {
+    display: none;
+  }
+}
+
+@media (max-height: 600px) {
+  .grid-vertical-animales {
+    display: none;
+  }
+  .grid-horizontal-animales {
+    display: flex;
+  }
+  .img-back{
+    display: none;
+  }
+}

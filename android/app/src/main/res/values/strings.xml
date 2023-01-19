@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">TablaDeIdiomasPPS</string>
+    <string name="title_activity_main">TablaDeIdiomasPPS</string>
+    <string name="package_name">com.tabladeidiomaspps.app</string>
+    <string name="custom_url_scheme">com.tabladeidiomaspps.app</string>
+</resources>

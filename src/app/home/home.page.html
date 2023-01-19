@@ -1,0 +1,396 @@
+<ion-content noscroll>
+  <ion-grid style="height: 6%; display: flex; flex-flow: column">
+    <ion-row style="flex-grow: 1">
+      <ion-col> </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <img class="img-back" src="../../assets/icon/favicon.png" alt="" />
+
+  <!-- ++++++++++++++++++++++++++++++++ LOGOUT ++++++++++++++++++++++++++++++++ -->
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button color="dark">
+      <ion-icon name="settings-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="end">
+      <ion-fab-button (click)="logoutUser()"
+        ><ion-icon
+          name="exit-outline"
+          style="
+            color: #fff;
+            background: rgb(255, 0, 0);
+            padding: 5px;
+            border-radius: 50%;
+            font-size: 3rem;
+          "
+        ></ion-icon
+      ></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <!-- ++++++++++++++++++++++++++++++++ MENU IDIOMAS ++++++++++++++++++++++++++++++++-->
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <img src="../../assets/flags/españa.png" alt="" *ngIf="spanish" />
+      <img src="../../assets/flags/brasil.png" alt="" *ngIf="portuguese" />
+      <img src="../../assets/flags/eeuu.png" alt="" *ngIf="english" />
+    </ion-fab-button>
+    <ion-fab-list side="start" color="dark">
+      <ion-fab-button *ngIf="!portuguese" class="btn-menu"
+        ><img
+          src="../../../assets/flags/brasil.png"
+          alt=""
+          (click)="chooseLanguage(1)"
+      /></ion-fab-button>
+      <ion-fab-button *ngIf="!english" class="btn-menu"
+        ><img
+          src="../../../assets/flags/eeuu.png"
+          alt=""
+          (click)="chooseLanguage(2)"
+      /></ion-fab-button>
+      <ion-fab-button *ngIf="!spanish" class="btn-menu"
+        ><img
+          src="../../../assets/flags/españa.png"
+          alt=""
+          (click)="chooseLanguage(3)"
+      /></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <!-- ++++++++++++++++++++++++++++++++ MENU TEMAS ++++++++++++++++++++++++++++++++-->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="dark">
+      <img src="../../../assets/themes/animals.png" alt="" *ngIf="animals" />
+      <img src="../../../assets/themes/numbers.png" alt="" *ngIf="numbers" />
+      <img src="../../../assets/themes/colors.png" alt="" *ngIf="colors" />
+    </ion-fab-button>
+    <ion-fab-list side="start" color="dark">
+      <ion-fab-button color="dark" class="btn-menu" *ngIf="!animals"
+        ><img
+          src="../../../assets/themes/animals.png"
+          alt=""
+          (click)="chooseTheme(3)"
+      /></ion-fab-button>
+      <ion-fab-button color="dark" class="btn-menu" *ngIf="!numbers"
+        ><img
+          src="../../../assets/themes/numbers.png"
+          alt=""
+          (click)="chooseTheme(1)"
+        />
+      </ion-fab-button>
+      <ion-fab-button color="dark" class="btn-menu" *ngIf="!colors"
+        ><img
+          src="../../../assets/themes/colors.png"
+          alt=""
+          (click)="chooseTheme(2)"
+        />
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <!-- ++++++++++++++++++++++++++++++++ LISTAS VERTICALES ++++++++++++++++++++++++++++++++-->
+  <ion-grid class="grid-vertical-animales">
+    <ion-row style="flex-grow: 1">
+      <ion-col>
+        <img
+          *ngIf="animals"
+          class="img-animal-vert"
+          src="../../../assets/animals/cat.png"
+          alt=""
+          (click)="chooseAnimal('cat')"
+        />
+        <img
+          *ngIf="colors"
+          class="img-animal-vert"
+          src="../../../assets/colors/black.png"
+          alt=""
+          (click)="chooseColor('black')"
+        />
+        <img
+          *ngIf="numbers"
+          class="img-animal-vert"
+          src="../../../assets/numbers/one.png"
+          alt=""
+          (click)="chooseNumber('one')"
+        />
+      </ion-col>
+      <ion-col>
+        <img
+          *ngIf="animals"
+          class="img-animal-vert"
+          src="../../../assets/animals/dog.png"
+          alt=""
+          (click)="chooseAnimal('dog')"
+        />
+        <img
+          *ngIf="colors"
+          class="img-animal-vert"
+          src="../../../assets/colors/blue.png"
+          alt=""
+          (click)="chooseColor('blue')"
+        />
+        <img
+          *ngIf="numbers"
+          class="img-animal-vert"
+          src="../../../assets/numbers/two.png"
+          alt=""
+          (click)="chooseNumber('two')"
+        />
+      </ion-col>
+    </ion-row>
+    <ion-row style="flex-grow: 1">
+      <ion-col>
+        <img
+          *ngIf="animals"
+          class="img-animal-vert"
+          src="../../../assets/animals/chicken.png"
+          alt=""
+          (click)="chooseAnimal('chicken')"
+        />
+        <img
+          *ngIf="colors"
+          class="img-animal-vert"
+          src="../../../assets/colors/green.png"
+          alt=""
+          (click)="chooseColor('green')"
+        />
+        <img
+          *ngIf="numbers"
+          class="img-animal-vert"
+          src="../../../assets/numbers/three.png"
+          alt=""
+          (click)="chooseNumber('three')"
+        />
+      </ion-col>
+      <ion-col>
+        <img
+          *ngIf="animals"
+          class="img-animal-vert"
+          src="../../../assets/animals/cow.png"
+          alt=""
+          (click)="chooseAnimal('cow')"
+        />
+        <img
+          *ngIf="colors"
+          class="img-animal-vert"
+          src="../../../assets/colors/pink.png"
+          alt=""
+          (click)="chooseColor('pink')"
+        />
+        <img
+          *ngIf="numbers"
+          class="img-animal-vert"
+          src="../../../assets/numbers/six.png"
+          alt=""
+          (click)="chooseNumber('six')"
+        />
+      </ion-col>
+    </ion-row>
+    <ion-row style="flex-grow: 1">
+      <ion-col>
+        <img
+          *ngIf="animals"
+          class="img-animal-vert"
+          src="../../../assets/animals/lion.png"
+          alt=""
+          (click)="chooseAnimal('lion')"
+        />
+        <img
+          *ngIf="colors"
+          class="img-animal-vert"
+          src="../../../assets/colors/red.png"
+          alt=""
+          (click)="chooseColor('red')"
+        />
+        <img
+          *ngIf="numbers"
+          class="img-animal-vert"
+          src="../../../assets/numbers/seven.png"
+          alt=""
+          (click)="chooseNumber('seven')"
+        />
+      </ion-col>
+      <ion-col>
+        <img
+          *ngIf="animals"
+          class="img-animal-vert"
+          src="../../../assets/animals/monkey.png"
+          alt=""
+          (click)="chooseAnimal('monkey')"
+        />
+        <img
+          *ngIf="colors"
+          class="img-animal-vert"
+          src="../../../assets/colors/yellow.png"
+          alt=""
+          (click)="chooseColor('yellow')"
+        />
+        <img
+          *ngIf="numbers"
+          class="img-animal-vert"
+          src="../../../assets/numbers/nine.png"
+          alt=""
+          (click)="chooseNumber('nine')"
+        />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- ++++++++++++++++++++++++++++++++ LISTAS HORIZONTALES ++++++++++++++++++++++++++++++++-->
+  <ion-grid class="grid-horizontal-animales">
+    <ion-row style="flex-grow: 1; height: 50%">
+      <ion-col style="height: 100%">
+        <img
+          *ngIf="animals"
+          class="img-animal-hor"
+          src="../../../assets/animals/cat.png"
+          alt=""
+          (click)="chooseAnimal('cat')"
+        />
+        <img
+          *ngIf="colors"
+          class="img-animal-hor"
+          src="../../../assets/colors/black.png"
+          alt=""
+          (click)="chooseColor('black')"
+        />
+        <img
+          *ngIf="numbers"
+          class="img-animal-hor"
+          src="../../../assets/numbers/one.png"
+          alt=""
+          (click)="chooseNumber('one')"
+        />
+      </ion-col>
+      <ion-col style="height: 100%">
+        <img
+          *ngIf="animals"
+          class="img-animal-hor"
+          src="../../../assets/animals/dog.png"
+          alt=""
+          (click)="chooseAnimal('dog')"
+        />
+        <img
+          *ngIf="colors"
+          class="img-animal-hor"
+          src="../../../assets/colors/blue.png"
+          alt=""
+          (click)="chooseColor('blue')"
+        />
+        <img
+          *ngIf="numbers"
+          class="img-animal-hor"
+          src="../../../assets/numbers/two.png"
+          alt=""
+          (click)="chooseNumber('two')"
+        />
+      </ion-col>
+      <ion-col style="height: 100%">
+        <img
+          *ngIf="animals"
+          class="img-animal-hor"
+          src="../../../assets/animals/chicken.png"
+          alt=""
+          (click)="chooseAnimal('chicken')"
+        />
+        <img
+          *ngIf="colors"
+          class="img-animal-hor"
+          src="../../../assets/colors/green.png"
+          alt=""
+          (click)="chooseColor('green')"
+        />
+        <img
+          *ngIf="numbers"
+          class="img-animal-hor"
+          src="../../../assets/numbers/three.png"
+          alt=""
+          (click)="chooseNumber('three')"
+        />
+      </ion-col>
+    </ion-row>
+    <ion-row style="flex-grow: 1; height: 50%">
+      <ion-col style="height: 100%">
+        <img
+          *ngIf="animals"
+          class="img-animal-hor"
+          src="../../../assets/animals/cow.png"
+          alt=""
+          (click)="chooseAnimal('cow')"
+        />
+        <img
+          *ngIf="colors"
+          class="img-animal-hor"
+          src="../../../assets/colors/pink.png"
+          alt=""
+          (click)="chooseColor('pink')"
+        />
+        <img
+          *ngIf="numbers"
+          class="img-animal-hor"
+          src="../../../assets/numbers/six.png"
+          alt=""
+          (click)="chooseNumber('six')"
+        />
+      </ion-col>
+      <ion-col style="height: 100%">
+        <img
+          *ngIf="animals"
+          class="img-animal-hor"
+          src="../../../assets/animals/lion.png"
+          alt=""
+          (click)="chooseAnimal('lion')"
+        />
+        <img
+          *ngIf="colors"
+          class="img-animal-hor"
+          src="../../../assets/colors/red.png"
+          alt=""
+          (click)="chooseColor('red')"
+        />
+        <img
+          *ngIf="numbers"
+          class="img-animal-hor"
+          src="../../../assets/numbers/seven.png"
+          alt=""
+          (click)="chooseNumber('seven')"
+        />
+      </ion-col>
+      <ion-col style="height: 100%">
+        <img
+          *ngIf="animals"
+          class="img-animal-hor"
+          src="../../../assets/animals/monkey.png"
+          alt=""
+          (click)="chooseAnimal('monkey')"
+        />
+        <img
+          *ngIf="colors"
+          class="img-animal-hor"
+          src="../../../assets/colors/yellow.png"
+          alt=""
+          (click)="chooseColor('yellow')"
+        />
+        <img
+          *ngIf="numbers"
+          class="img-animal-hor"
+          src="../../../assets/numbers/nine.png"
+          alt=""
+          (click)="chooseNumber('nine')"
+        />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- ++++++++++++++++++++++++++++++++ SPINNER ++++++++++++++++++++++++++++++++ -->
+  <ion-spinner
+    *ngIf="pressedButton"
+    name="crescent"
+    color="danger"
+    style="
+      display: block;
+      margin: auto;
+      position: inherit;
+    "
+  ></ion-spinner>
+</ion-content>
