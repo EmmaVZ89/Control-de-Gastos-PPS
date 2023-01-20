@@ -8,10 +8,11 @@ ion-content {
 
   h1,
   p {
-    color: #000;
+    color: #fff;
     font-size: 3rem;
     font-weight: bolder;
     font-family: monospace, Verdana, sans-serif;
+    text-shadow: 1px 1px 1px #000;
   }
 
   :nth-child(1),
@@ -57,7 +58,7 @@ ion-content {
   left: 0;
   height: 2px;
   width: 100%;
-  background-color: #000;
+  background-color: #fff;
   transform-origin: 100% 100%;
   bottom: 0;
 }

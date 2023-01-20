@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { LoadingController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-login',
@@ -15,10 +17,14 @@ export class LoginPage implements OnInit {
   type: boolean = true;
   name: boolean = true;
 
-  constructor(private auth: AuthService, private router: Router) {}
+  loading: any;
 
-  ngOnInit() {
+  constructor(private auth: AuthService, private router: Router,private loadingController: LoadingController) {}
+
+  async ngOnInit() {
+    await this.showLoading('');
     this.auth.getUserLogged().subscribe((res) => {
+      this.loading.dismiss();
       if (res !== null) {
         this.router.navigate(['/home']);
       }
@@ -68,4 +74,18 @@ export class LoginPage implements OnInit {
         break;
     }
   } // end of loadFastUser
+
+  async showLoading(message: string) {
+    try {
+      this.loading = await this.loadingController.create({
+        message: message,
+        spinner: 'crescent',
+        showBackdrop: true,
+      });
+      this.loading.present();
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
 }

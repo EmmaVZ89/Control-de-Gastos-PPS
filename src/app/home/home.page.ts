@@ -26,8 +26,11 @@ export class HomePage implements OnInit {
     private loadingController: LoadingController
   ) {}
 
-  ngOnInit(): void {
-    this.authService.user$.subscribe((user: any) => {
+  async ngOnInit() {
+    await this.showLoading('Iniciando...');
+    this.authService.user$.subscribe(async (user: any) => {
+      this.loading.dismiss();
+      await this.showLoading('Iniciando...');
       if (user) {
         this.user = user;
         this.firestoreService
@@ -46,6 +49,7 @@ export class HomePage implements OnInit {
                 console.log('Mes activo: ', currentMonth);
               }
             });
+            this.loading.dismiss();
             if (this.activeMonth) {
               this.router.navigate(['/inicio']);
             } else {
@@ -53,6 +57,7 @@ export class HomePage implements OnInit {
             }
           });
       } else {
+        this.loading.dismiss();
         // this.router.navigate(['/login']);
       }
     });
