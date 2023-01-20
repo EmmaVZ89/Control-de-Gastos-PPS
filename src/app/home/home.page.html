@@ -1,396 +1,74 @@
 <ion-content noscroll>
-  <ion-grid style="height: 6%; display: flex; flex-flow: column">
-    <ion-row style="flex-grow: 1">
-      <ion-col> </ion-col>
-    </ion-row>
-  </ion-grid>
+  <div
+    class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+  >
+    <div class="w-full max-w-md space-y-8">
+      <div>
+        <img
+          class="mx-auto h-30 w-10"
+          style="width: 8rem; border-radius: 50%; box-shadow: 2px 2px 2px #000"
+          src="../../assets/dolar.png"
+          alt="Simbolo de dinero"
+        />
+        <h2
+          class="mt-6 text-center text-2xl font-bold tracking-tight text-gray-900"
+        >
+          Ingresa tu sueldo y porcentaje de gastos esperados
+        </h2>
+        <p class="mt-2 text-center text-sm text-gray-600">
+          el porcentaje de gastos es en relación con tus ingresos
+        </p>
+      </div>
+      <form class="mt-8 space-y-6" action="#" method="POST">
+        <div class="-space-y-px rounded-md shadow-sm">
+          <div>
+            <label for="salary" class="sr-only">Sueldo</label>
+            <input
+              id="salary"
+              name="sueldo"
+              type="number"
+              pattern="[0-9]*"
+              [(ngModel)]="salary"
+              [ngModelOptions]="{standalone: true}"
+              required
+              class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-white-900 placeholder-white-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              placeholder="$ Sueldo"
+            />
+          </div>
+          <div>
+            <label for="percentage" class="sr-only">Porcentaje</label>
+            <input
+              id="percentage"
+              name="percentage"
+              type="number"
+              pattern="[0-9]*"
+              [(ngModel)]="percentage"
+              [ngModelOptions]="{standalone: true}"
+              required
+              class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-white-900 placeholder-white-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              placeholder="% Porcentaje"
+            />
+          </div>
+        </div>
 
-  <img class="img-back" src="../../assets/icon/favicon.png" alt="" />
+        <div class="flex items-center justify-between">
+          <div class="text-sm">
+            <p class="mt-2 text-center text-sm text-gray-600">
+              El porcentaje debe ser mayor a 0 y menor a 100.
+            </p>
+          </div>
+        </div>
 
-  <!-- ++++++++++++++++++++++++++++++++ LOGOUT ++++++++++++++++++++++++++++++++ -->
-  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
-    <ion-fab-button color="dark">
-      <ion-icon name="settings-outline"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="end">
-      <ion-fab-button (click)="logoutUser()"
-        ><ion-icon
-          name="exit-outline"
-          style="
-            color: #fff;
-            background: rgb(255, 0, 0);
-            padding: 5px;
-            border-radius: 50%;
-            font-size: 3rem;
-          "
-        ></ion-icon
-      ></ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
-
-  <!-- ++++++++++++++++++++++++++++++++ MENU IDIOMAS ++++++++++++++++++++++++++++++++-->
-  <ion-fab vertical="top" horizontal="end" slot="fixed">
-    <ion-fab-button>
-      <img src="../../assets/flags/españa.png" alt="" *ngIf="spanish" />
-      <img src="../../assets/flags/brasil.png" alt="" *ngIf="portuguese" />
-      <img src="../../assets/flags/eeuu.png" alt="" *ngIf="english" />
-    </ion-fab-button>
-    <ion-fab-list side="start" color="dark">
-      <ion-fab-button *ngIf="!portuguese" class="btn-menu"
-        ><img
-          src="../../../assets/flags/brasil.png"
-          alt=""
-          (click)="chooseLanguage(1)"
-      /></ion-fab-button>
-      <ion-fab-button *ngIf="!english" class="btn-menu"
-        ><img
-          src="../../../assets/flags/eeuu.png"
-          alt=""
-          (click)="chooseLanguage(2)"
-      /></ion-fab-button>
-      <ion-fab-button *ngIf="!spanish" class="btn-menu"
-        ><img
-          src="../../../assets/flags/españa.png"
-          alt=""
-          (click)="chooseLanguage(3)"
-      /></ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
-
-  <!-- ++++++++++++++++++++++++++++++++ MENU TEMAS ++++++++++++++++++++++++++++++++-->
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="dark">
-      <img src="../../../assets/themes/animals.png" alt="" *ngIf="animals" />
-      <img src="../../../assets/themes/numbers.png" alt="" *ngIf="numbers" />
-      <img src="../../../assets/themes/colors.png" alt="" *ngIf="colors" />
-    </ion-fab-button>
-    <ion-fab-list side="start" color="dark">
-      <ion-fab-button color="dark" class="btn-menu" *ngIf="!animals"
-        ><img
-          src="../../../assets/themes/animals.png"
-          alt=""
-          (click)="chooseTheme(3)"
-      /></ion-fab-button>
-      <ion-fab-button color="dark" class="btn-menu" *ngIf="!numbers"
-        ><img
-          src="../../../assets/themes/numbers.png"
-          alt=""
-          (click)="chooseTheme(1)"
-        />
-      </ion-fab-button>
-      <ion-fab-button color="dark" class="btn-menu" *ngIf="!colors"
-        ><img
-          src="../../../assets/themes/colors.png"
-          alt=""
-          (click)="chooseTheme(2)"
-        />
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
-
-  <!-- ++++++++++++++++++++++++++++++++ LISTAS VERTICALES ++++++++++++++++++++++++++++++++-->
-  <ion-grid class="grid-vertical-animales">
-    <ion-row style="flex-grow: 1">
-      <ion-col>
-        <img
-          *ngIf="animals"
-          class="img-animal-vert"
-          src="../../../assets/animals/cat.png"
-          alt=""
-          (click)="chooseAnimal('cat')"
-        />
-        <img
-          *ngIf="colors"
-          class="img-animal-vert"
-          src="../../../assets/colors/black.png"
-          alt=""
-          (click)="chooseColor('black')"
-        />
-        <img
-          *ngIf="numbers"
-          class="img-animal-vert"
-          src="../../../assets/numbers/one.png"
-          alt=""
-          (click)="chooseNumber('one')"
-        />
-      </ion-col>
-      <ion-col>
-        <img
-          *ngIf="animals"
-          class="img-animal-vert"
-          src="../../../assets/animals/dog.png"
-          alt=""
-          (click)="chooseAnimal('dog')"
-        />
-        <img
-          *ngIf="colors"
-          class="img-animal-vert"
-          src="../../../assets/colors/blue.png"
-          alt=""
-          (click)="chooseColor('blue')"
-        />
-        <img
-          *ngIf="numbers"
-          class="img-animal-vert"
-          src="../../../assets/numbers/two.png"
-          alt=""
-          (click)="chooseNumber('two')"
-        />
-      </ion-col>
-    </ion-row>
-    <ion-row style="flex-grow: 1">
-      <ion-col>
-        <img
-          *ngIf="animals"
-          class="img-animal-vert"
-          src="../../../assets/animals/chicken.png"
-          alt=""
-          (click)="chooseAnimal('chicken')"
-        />
-        <img
-          *ngIf="colors"
-          class="img-animal-vert"
-          src="../../../assets/colors/green.png"
-          alt=""
-          (click)="chooseColor('green')"
-        />
-        <img
-          *ngIf="numbers"
-          class="img-animal-vert"
-          src="../../../assets/numbers/three.png"
-          alt=""
-          (click)="chooseNumber('three')"
-        />
-      </ion-col>
-      <ion-col>
-        <img
-          *ngIf="animals"
-          class="img-animal-vert"
-          src="../../../assets/animals/cow.png"
-          alt=""
-          (click)="chooseAnimal('cow')"
-        />
-        <img
-          *ngIf="colors"
-          class="img-animal-vert"
-          src="../../../assets/colors/pink.png"
-          alt=""
-          (click)="chooseColor('pink')"
-        />
-        <img
-          *ngIf="numbers"
-          class="img-animal-vert"
-          src="../../../assets/numbers/six.png"
-          alt=""
-          (click)="chooseNumber('six')"
-        />
-      </ion-col>
-    </ion-row>
-    <ion-row style="flex-grow: 1">
-      <ion-col>
-        <img
-          *ngIf="animals"
-          class="img-animal-vert"
-          src="../../../assets/animals/lion.png"
-          alt=""
-          (click)="chooseAnimal('lion')"
-        />
-        <img
-          *ngIf="colors"
-          class="img-animal-vert"
-          src="../../../assets/colors/red.png"
-          alt=""
-          (click)="chooseColor('red')"
-        />
-        <img
-          *ngIf="numbers"
-          class="img-animal-vert"
-          src="../../../assets/numbers/seven.png"
-          alt=""
-          (click)="chooseNumber('seven')"
-        />
-      </ion-col>
-      <ion-col>
-        <img
-          *ngIf="animals"
-          class="img-animal-vert"
-          src="../../../assets/animals/monkey.png"
-          alt=""
-          (click)="chooseAnimal('monkey')"
-        />
-        <img
-          *ngIf="colors"
-          class="img-animal-vert"
-          src="../../../assets/colors/yellow.png"
-          alt=""
-          (click)="chooseColor('yellow')"
-        />
-        <img
-          *ngIf="numbers"
-          class="img-animal-vert"
-          src="../../../assets/numbers/nine.png"
-          alt=""
-          (click)="chooseNumber('nine')"
-        />
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <!-- ++++++++++++++++++++++++++++++++ LISTAS HORIZONTALES ++++++++++++++++++++++++++++++++-->
-  <ion-grid class="grid-horizontal-animales">
-    <ion-row style="flex-grow: 1; height: 50%">
-      <ion-col style="height: 100%">
-        <img
-          *ngIf="animals"
-          class="img-animal-hor"
-          src="../../../assets/animals/cat.png"
-          alt=""
-          (click)="chooseAnimal('cat')"
-        />
-        <img
-          *ngIf="colors"
-          class="img-animal-hor"
-          src="../../../assets/colors/black.png"
-          alt=""
-          (click)="chooseColor('black')"
-        />
-        <img
-          *ngIf="numbers"
-          class="img-animal-hor"
-          src="../../../assets/numbers/one.png"
-          alt=""
-          (click)="chooseNumber('one')"
-        />
-      </ion-col>
-      <ion-col style="height: 100%">
-        <img
-          *ngIf="animals"
-          class="img-animal-hor"
-          src="../../../assets/animals/dog.png"
-          alt=""
-          (click)="chooseAnimal('dog')"
-        />
-        <img
-          *ngIf="colors"
-          class="img-animal-hor"
-          src="../../../assets/colors/blue.png"
-          alt=""
-          (click)="chooseColor('blue')"
-        />
-        <img
-          *ngIf="numbers"
-          class="img-animal-hor"
-          src="../../../assets/numbers/two.png"
-          alt=""
-          (click)="chooseNumber('two')"
-        />
-      </ion-col>
-      <ion-col style="height: 100%">
-        <img
-          *ngIf="animals"
-          class="img-animal-hor"
-          src="../../../assets/animals/chicken.png"
-          alt=""
-          (click)="chooseAnimal('chicken')"
-        />
-        <img
-          *ngIf="colors"
-          class="img-animal-hor"
-          src="../../../assets/colors/green.png"
-          alt=""
-          (click)="chooseColor('green')"
-        />
-        <img
-          *ngIf="numbers"
-          class="img-animal-hor"
-          src="../../../assets/numbers/three.png"
-          alt=""
-          (click)="chooseNumber('three')"
-        />
-      </ion-col>
-    </ion-row>
-    <ion-row style="flex-grow: 1; height: 50%">
-      <ion-col style="height: 100%">
-        <img
-          *ngIf="animals"
-          class="img-animal-hor"
-          src="../../../assets/animals/cow.png"
-          alt=""
-          (click)="chooseAnimal('cow')"
-        />
-        <img
-          *ngIf="colors"
-          class="img-animal-hor"
-          src="../../../assets/colors/pink.png"
-          alt=""
-          (click)="chooseColor('pink')"
-        />
-        <img
-          *ngIf="numbers"
-          class="img-animal-hor"
-          src="../../../assets/numbers/six.png"
-          alt=""
-          (click)="chooseNumber('six')"
-        />
-      </ion-col>
-      <ion-col style="height: 100%">
-        <img
-          *ngIf="animals"
-          class="img-animal-hor"
-          src="../../../assets/animals/lion.png"
-          alt=""
-          (click)="chooseAnimal('lion')"
-        />
-        <img
-          *ngIf="colors"
-          class="img-animal-hor"
-          src="../../../assets/colors/red.png"
-          alt=""
-          (click)="chooseColor('red')"
-        />
-        <img
-          *ngIf="numbers"
-          class="img-animal-hor"
-          src="../../../assets/numbers/seven.png"
-          alt=""
-          (click)="chooseNumber('seven')"
-        />
-      </ion-col>
-      <ion-col style="height: 100%">
-        <img
-          *ngIf="animals"
-          class="img-animal-hor"
-          src="../../../assets/animals/monkey.png"
-          alt=""
-          (click)="chooseAnimal('monkey')"
-        />
-        <img
-          *ngIf="colors"
-          class="img-animal-hor"
-          src="../../../assets/colors/yellow.png"
-          alt=""
-          (click)="chooseColor('yellow')"
-        />
-        <img
-          *ngIf="numbers"
-          class="img-animal-hor"
-          src="../../../assets/numbers/nine.png"
-          alt=""
-          (click)="chooseNumber('nine')"
-        />
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <!-- ++++++++++++++++++++++++++++++++ SPINNER ++++++++++++++++++++++++++++++++ -->
-  <ion-spinner
-    *ngIf="pressedButton"
-    name="crescent"
-    color="danger"
-    style="
-      display: block;
-      margin: auto;
-      position: inherit;
-    "
-  ></ion-spinner>
+        <div>
+          <button
+            (click)="createControl()"
+            type="submit"
+            class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          >
+            Crear
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </ion-content>

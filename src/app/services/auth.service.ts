@@ -121,10 +121,9 @@ export class AuthService {
   async toast(message, status) {
     try {
       const toast = await this.toastController.create({
-        icon: 'log-in-outline',
         message: message,
         color: status,
-        position: 'bottom',
+        position: 'top',
         duration: 2000,
       });
       toast.present();

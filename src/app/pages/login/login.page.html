@@ -1,24 +1,19 @@
 <ion-content>
-  <div class="upper">
-    <span>
+  <ion-header>
+    <ion-toolbar color="dark">
       <img
-        style="width: 40px; padding-right: 10px"
-        src="../../../assets/tablaIdiomas.png"
+        style="width: 50px; position: absolute; left: 5px; top: 3px"
+        src="../../../assets/controlGastos.png"
         alt=""
       />
-      <h1 style="display: inline">INICIO DE SESIÓN</h1>
-      <img
-        style="width: 40px; padding-left: 10px"
-        src="../../../assets/tablaIdiomas.png"
-        alt=""
-      />
-    </span>
-  </div>
+      <ion-title class="upper">Control de Gastos</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
   <div class="middle">
     <div class="box">
       <form #loginForm="ngForm">
-        <p>Ingresa a tu cuenta</p>
+        <p>Inicio de Sesión</p>
 
         <!-- INPUT EMAIL -->
         <ion-item>
@@ -40,7 +35,14 @@
         </ion-item>
         <div *ngIf="email.invalid && email.touched">
           <ion-text color="danger text-center">
-            <h4 style="padding-left: 20px; margin-top: 10px; font-size: 14px">
+            <h4
+              style="
+                padding-left: 20px;
+                margin-top: 10px;
+                font-size: 14px;
+                color: #f00;
+              "
+            >
               Ingrese su Dirección de Correo
             </h4>
           </ion-text>
@@ -66,7 +68,14 @@
         </ion-item>
         <div *ngIf="password.invalid && password.touched">
           <ion-text color="danger text-center">
-            <h4 style="padding-left: 20px; margin-top: 10px; font-size: 14px">
+            <h4
+              style="
+                padding-left: 20px;
+                margin-top: 10px;
+                font-size: 14px;
+                color: #f00;
+              "
+            >
               Ingrese su Contraseña
             </h4>
           </ion-text>
@@ -85,13 +94,16 @@
 
         <hr />
 
-        <p>También ingresa como:</p>
+        <p>Inicio Rápido</p>
 
         <div class="btn">
-          <!-- <ion-button (click)="loginUser()" [disabled]="loginForm.invalid" -->
           <ion-button
             (click)="loadFastUser(1)"
-            style="--background: rgb(50, 50, 50)"
+            style="
+              --background: rgb(255, 255, 255);
+              color: #000;
+              border: 2px solid #000;
+            "
             ><ion-icon
               name="person-outline"
               style="padding-right: 10px"
@@ -101,10 +113,13 @@
         </div>
 
         <div class="btn">
-          <!-- <ion-button (click)="loginUser()" [disabled]="loginForm.invalid" -->
           <ion-button
             (click)="loadFastUser(2)"
-            style="--background: rgb(50, 50, 50)"
+            style="
+              --background: rgb(255, 255, 255);
+              color: #000;
+              border: 2px solid #000;
+            "
             ><ion-icon
               name="person-outline"
               style="padding-right: 10px"
@@ -116,7 +131,11 @@
         <div class="btn">
           <ion-button
             (click)="loadFastUser(3)"
-            style="--background: rgb(50, 50, 50)"
+            style="
+              --background: rgb(255, 255, 255);
+              color: #000;
+              border: 2px solid #000;
+            "
             ><ion-icon
               name="person-outline"
               style="padding-right: 10px"

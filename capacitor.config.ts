@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.tabladeidiomaspps.app',
-  appName: 'TablaDeIdiomasPPS',
+  appId: 'com.controldegastospps.app',
+  appName: 'Control de Gastos',
   webDir: 'www',
   bundledWebRuntime: false
 };

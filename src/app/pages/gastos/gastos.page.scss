@@ -1,0 +1,21 @@
+ion-content {
+  --background: rgb(221, 98, 98);
+  --background: linear-gradient(
+    180deg,
+    rgba(221, 98, 98, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.btn-sumar {
+  position: relative;
+  z-index: 100;
+  color: rgb(102, 255, 0);
+  font-size: 4rem;
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px #000;
+}
+.btn-sumar:active {
+  transform: scale(0.9);
+  transition: transform 0.3s;
+}

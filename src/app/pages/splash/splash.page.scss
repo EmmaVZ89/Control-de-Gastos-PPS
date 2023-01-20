@@ -1,18 +1,16 @@
 ion-content {
-  --background: rgb(166, 227, 153);
+  --background: rgb(221, 98, 98);
   --background: linear-gradient(
-    215deg,
-    rgba(166, 227, 153, 1) 16%,
-    rgba(5, 182, 203, 1) 66%,
-    rgba(250, 125, 109, 1) 66%
+    180deg,
+    rgba(221, 98, 98, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
   );
 
   h1,
   p {
-    color: #fff;
+    color: #000;
     font-size: 3rem;
     font-weight: bolder;
-    text-shadow: 2px 2px 4px rgb(0, 0, 0);
     font-family: monospace, Verdana, sans-serif;
   }
 
@@ -31,6 +29,9 @@ ion-content {
   }
 
   img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 17rem;
   }
 }
@@ -56,7 +57,7 @@ ion-content {
   left: 0;
   height: 2px;
   width: 100%;
-  background-color: #fff;
+  background-color: #000;
   transform-origin: 100% 100%;
   bottom: 0;
 }

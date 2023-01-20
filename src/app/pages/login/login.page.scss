@@ -1,23 +1,18 @@
 ion-content {
-  // --background: url("../../../assets/back-login.jpg") center/cover;
-  --background: rgb(166, 227, 153);
+  --background: rgb(221, 98, 98);
   --background: linear-gradient(
-    215deg,
-    rgba(166, 227, 153, 1) 16%,
-    rgba(5, 182, 203, 1) 66%,
-    rgba(250, 125, 109, 1) 66%
+    180deg,
+    rgba(221, 98, 98, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
   );
+
   min-height: 100%;
 
   .upper {
-    margin-top: 1rem;
     text-align: center;
-    h1 {
-      font-family: monospace;
-      text-align: center;
-      text-shadow: 1px 1px 2px #000;
-      font-weight: bolder;
-    }
+    font-family: monospace;
+    text-align: center;
+    font-weight: bolder;
   }
   .middle {
     padding: 20px;
@@ -25,25 +20,25 @@ ion-content {
 
     .box {
       border-radius: 10px;
-      border: 1px solid #444;
-      box-shadow: 2px 2px 8px #444;
+      border: 1px solid #000;
+      box-shadow: 2px 2px 8px rgb(0, 0, 0);
       padding: 20px;
-      // background: black;
-      background: rgba(167, 227, 153, 0.527);
-      background: linear-gradient(
-        215deg,
-        rgba(167, 227, 153, 0.548) 16%,
-        rgba(5, 183, 203, 0.527) 66%,
-        rgba(250, 125, 109, 0.527) 66%
+      --background: rgb(221, 98, 98);
+      --background: linear-gradient(
+        180deg,
+        rgba(221, 98, 98, 1) 0%,
+        rgba(255, 255, 255, 1) 100%
       );
 
       p {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
         font-family: monospace;
-        color: #fff;
-        font-size: 1.1rem;
+        color: #000;
+        font-size: 1.3rem;
         font-weight: bold;
         text-align: center;
-        text-shadow: 1px 1px 2px #000;
+        // text-shadow: 1px 1px 2px #000;
       }
 
       ion-item {
@@ -51,7 +46,7 @@ ion-content {
         --background: rgba(255, 255, 255, 0.582);
         font-family: monospace;
         ion-icon {
-          color: rgba(5, 182, 203, 1);
+          color: rgb(56, 56, 56);
           margin-top: 2rem;
         }
       }

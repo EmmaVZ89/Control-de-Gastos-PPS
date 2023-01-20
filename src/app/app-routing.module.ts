@@ -1,11 +1,22 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { GastosPage } from './pages/gastos/gastos.page';
 
 const routes: Routes = [
   {
     path: 'home',
     loadChildren: () =>
       import('./home/home.module').then((m) => m.HomePageModule),
+  },
+  {
+    path: 'gastos',
+    loadChildren: () =>
+      import('./pages/gastos/gastos.module').then((m) => m.GastosPageModule),
+  },
+  {
+    path: 'gastos/',
+     loadChildren: () =>
+      import('./pages/gastos/gastos.module').then((m) => m.GastosPageModule),
   },
   {
     path: 'splash',

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
+import { FirestoreService } from '../services/firestore.service';
 
 @Component({
   selector: 'app-home',
@@ -8,131 +10,131 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  pressedButton: boolean = false;
-  animals: boolean = true;
-  numbers: boolean = false;
-  colors: boolean = false;
-  spanish: boolean = true;
-  portuguese: boolean = false;
-  english: boolean = false;
-  language: string = '_esp';
-  audioPath: string;
-  sound: any;
+  user: any = null;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  salary: number;
+  percentage: number;
 
-  ngOnInit(): void {}
+  activeMonth: boolean = false;
+
+  loading: any;
+
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private firestoreService: FirestoreService,
+    private loadingController: LoadingController
+  ) {}
+
+  ngOnInit(): void {
+    this.authService.user$.subscribe((user: any) => {
+      if (user) {
+        this.user = user;
+        this.firestoreService
+          .getMonthlyControls(this.user.userUid)
+          .subscribe((controls) => {
+            const currentDate = new Date();
+            const currentMonth = this.getMonth(currentDate);
+            const currentYear = currentDate.getFullYear();
+            this.activeMonth = false;
+            controls.forEach((control) => {
+              if (
+                control.month == currentMonth &&
+                control.year == currentYear
+              ) {
+                this.activeMonth = true;
+                console.log('Mes activo: ', currentMonth);
+              }
+            });
+            if (this.activeMonth) {
+              this.router.navigate(['/gastos']);
+            } else {
+              this.router.navigate(['/home']);
+            }
+          });
+      } else {
+        // this.router.navigate(['/login']);
+      }
+    });
+  }
 
   logoutUser() {
     this.authService.signOut();
-    this.playSoundGreeting();
   } // end of logoutUser
 
-  playSoundTheme(typeOfSound: string) {
-    if (this.animals) {
-      this.audioPath =
-        '../../../assets/audio_animals/' + typeOfSound + this.language + '.mp3';
-      this.sound = new Audio(this.audioPath);
-      this.sound.play();
-    } else if (this.numbers) {
-      this.audioPath =
-        '../../../assets/audio_numbers/' + typeOfSound + this.language + '.mp3';
-      this.sound = new Audio(this.audioPath);
-      this.sound.play();
-    } else if (this.colors) {
-      this.audioPath =
-        '../../../assets/audio_colors/' + typeOfSound + this.language + '.mp3';
-      this.sound = new Audio(this.audioPath);
-      this.sound.play();
+  createControl() {
+    if (
+      this.percentage <= 0 ||
+      this.percentage >= 100 ||
+      this.salary == undefined ||
+      this.percentage == undefined
+    ) {
+      this.authService.toast(
+        'El porcentaje debe ser mayor a 0 y menor a 100',
+        'secondary'
+      );
+    } else if (this.salary <= 0) {
+      this.authService.toast(
+        'El ingreso mensual debe ser mayor a 0',
+        'secondary'
+      );
+    } else {
+      const date = new Date();
+      const control: any = {
+        userUid: this.user.userUid,
+        date: date,
+        month: this.getMonth(date),
+        year: date.getFullYear(),
+        salary: this.salary,
+        percentage: this.percentage,
+        categories: {
+          food: 0,
+          medicine: 0,
+          services: 0,
+          taxes: 0,
+        },
+      };
+      this.showLoading('Creando control...');
+      this.firestoreService.createMonthlyControl(control).then(() => {
+        this.loading.dismiss();
+        this.authService.toast(
+          `Control de Gastos ${this.getMonth(
+            date
+          )} ${date.getFullYear()} Creado.`,
+          'success'
+        );
+      });
     }
-  } // end of playSound
+  }
 
-  chooseLanguage(languageOption: number) {
-    switch (languageOption) {
-      case 1:
-        this.spanish = false;
-        this.portuguese = true;
-        this.english = false;
-        this.language = '_por';
-        break;
-      case 2:
-        this.spanish = false;
-        this.portuguese = false;
-        this.english = true;
-        this.language = '_eng';
-        break;
-      case 3:
-        this.spanish = true;
-        this.portuguese = false;
-        this.english = false;
-        this.language = '_esp';
-        break;
+  getMonth(date: Date) {
+    const months = [
+      'Enero',
+      'Febrero',
+      'Marzo',
+      'Abril',
+      'Mayo',
+      'Junio',
+      'Julio',
+      'Agosto',
+      'Septiembre',
+      'Octubre',
+      'Noviembre',
+      'Diciembre',
+    ];
+    return months[date.getMonth()];
+  }
+
+  async showLoading(message: string) {
+    try {
+      this.loading = await this.loadingController.create({
+        message: message,
+        spinner: 'crescent',
+        showBackdrop: true,
+      });
+      this.loading.present();
+    } catch (error) {
+      console.log(error.message);
     }
-    this.playSoundLanguageChange();
-  } // end of chooseLanguage
-
-  chooseTheme(themeOption: number) {
-    this.pressedButton = true;
-    setTimeout(() => {
-      this.pressedButton = false;
-      switch (themeOption) {
-        case 1:
-          this.animals = false;
-          this.numbers = true;
-          this.colors = false;
-          break;
-        case 2:
-          this.animals = false;
-          this.numbers = false;
-          this.colors = true;
-          break;
-        case 3:
-          this.animals = true;
-          this.numbers = false;
-          this.colors = false;
-          break;
-      }
-      this.playSoundThemeChange();
-    }, 2000);
-  } // end of chooseTheme
-
-  chooseAnimal(animal: string) {
-    this.playSoundTheme(animal);
-  } // end of chooseAnimal
-
-  chooseColor(color: string) {
-    this.playSoundTheme(color);
-  } // end of chooseColor
-
-  chooseNumber(number: string) {
-    this.playSoundTheme(number);
-  } // end of chooseNumber
-
-  playSoundLanguageChange() {
-    const path = '../../../assets/extra/language' + this.language + '.mp3';
-    const audio = new Audio(path);
-    audio.play();
-  } // end of playSoundLanguage
-
-  playSoundThemeChange() {
-    if (this.animals) {
-      const path = '../../../assets/extra/animals' + this.language + '.mp3';
-      const audio = new Audio(path);
-      audio.play();
-    } else if (this.numbers) {
-      const path = '../../../assets/extra/numbers' + this.language + '.mp3';
-      const audio = new Audio(path);
-      audio.play();
-    } else if (this.colors) {
-      const path = '../../../assets/extra/colors' + this.language + '.mp3';
-      const audio = new Audio(path);
-      audio.play();
-    }
-  } // end of playSoundLanguage
-
-  playSoundGreeting() {
-    const path = '../../../assets/extra/greeting' + this.language + '.mp3';
-    const audio = new Audio(path);
-    audio.play();
-  } // end of playSoundGreeting
+  }
 }

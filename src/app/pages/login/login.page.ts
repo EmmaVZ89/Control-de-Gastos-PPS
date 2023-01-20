@@ -31,15 +31,6 @@ export class LoginPage implements OnInit {
   } // end of changeType
 
   loginUser() {
-    // let newUser: User = {
-    //   userId: '5',
-    //   userName: 'Tester',
-    //   userEmail: 'tester@tester.com',
-    //   userPassword: '555555',
-    //   userRol: 'tester',
-    //   userSex: 'femenino',
-    // };
-    // this.auth.registerNewUser(newUser);
     if (this.login.email && this.login.password) {
       this.auth.signIn(this.login.email, this.login.password);
     } else {
@@ -54,7 +45,7 @@ export class LoginPage implements OnInit {
         this.login.password = '111111';
         this.auth.toast(
           '¡Usuario cargado, ahora puedes Iniciar Sesión!',
-          'success'
+          'primary'
         );
         break;
       case 2:
@@ -62,7 +53,7 @@ export class LoginPage implements OnInit {
         this.login.password = '222222';
         this.auth.toast(
           '¡Usuario cargado, ahora puedes Iniciar Sesión!',
-          'success'
+          'primary'
         );
         break;
       case 3:
@@ -70,7 +61,7 @@ export class LoginPage implements OnInit {
         this.login.password = '333333';
         this.auth.toast(
           '¡Usuario cargado, ahora puedes Iniciar Sesión!',
-          'success'
+          'primary'
         );
         break;
       default:
