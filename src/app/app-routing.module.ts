@@ -9,14 +9,9 @@ const routes: Routes = [
       import('./home/home.module').then((m) => m.HomePageModule),
   },
   {
-    path: 'gastos',
+    path: 'inicio',
     loadChildren: () =>
-      import('./pages/gastos/gastos.module').then((m) => m.GastosPageModule),
-  },
-  {
-    path: 'gastos/',
-     loadChildren: () =>
-      import('./pages/gastos/gastos.module').then((m) => m.GastosPageModule),
+      import('./pages/inicio/inicio.module').then((m) => m.InicioPageModule),
   },
   {
     path: 'splash',

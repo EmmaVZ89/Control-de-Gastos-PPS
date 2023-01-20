@@ -30,9 +30,11 @@ export class GastosPage implements OnInit {
     private loadingController: LoadingController
   ) {}
 
-  ngOnInit() {
-    this.showLoading('Cargando...');
-    this.authService.user$.subscribe((user: any) => {
+  async ngOnInit() {
+    await this.showLoading('Cargando...');
+    this.authService.user$.subscribe(async (user: any) => {
+      this.loading.dismiss();
+      await this.showLoading('Cargando...');
       if (user) {
         this.user = user;
         this.firestoreService
@@ -55,7 +57,6 @@ export class GastosPage implements OnInit {
           });
       } else {
         this.loading.dismiss();
-        // this.router.navigate(['/login']);
       }
     });
   }
@@ -76,23 +77,6 @@ export class GastosPage implements OnInit {
       'Diciembre',
     ];
     return months[date.getMonth()];
-  }
-
-  logOut() {
-    this.authService.signOut();
-  }
-
-  async showLoading(message: string) {
-    try {
-      this.loading = await this.loadingController.create({
-        message: message,
-        spinner: 'crescent',
-        showBackdrop: true,
-      });
-      this.loading.present();
-    } catch (error) {
-      console.log(error.message);
-    }
   }
 
   addFood() {
@@ -148,6 +132,19 @@ export class GastosPage implements OnInit {
         this.taxes = 0;
         this.authService.toast('Cargado con exito!!', 'success');
       });
+    }
+  }
+
+  async showLoading(message: string) {
+    try {
+      this.loading = await this.loadingController.create({
+        message: message,
+        spinner: 'crescent',
+        showBackdrop: true,
+      });
+      this.loading.present();
+    } catch (error) {
+      console.log(error.message);
     }
   }
 }

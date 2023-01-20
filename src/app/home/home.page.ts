@@ -47,7 +47,7 @@ export class HomePage implements OnInit {
               }
             });
             if (this.activeMonth) {
-              this.router.navigate(['/gastos']);
+              this.router.navigate(['/inicio']);
             } else {
               this.router.navigate(['/home']);
             }
