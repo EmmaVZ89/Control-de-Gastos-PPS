@@ -40,7 +40,7 @@ establecido para ese mes.</li>
  <hr>
  <h2 align="center">SPLASH SCREEN</h2>
  <p align="center">
-   <img width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/1-splash.gif">
+   <img width=200 src="https://github.com/EmmaVZ89/Control-de-Gastos-PPS/blob/main/readme/1-splash.gif">
  </p>
  <hr>
  
@@ -48,44 +48,45 @@ establecido para ese mes.</li>
  <h2 align="center">INICIO RÁPIDO</h2>
  <p align="center">Se pueden seleccionar 3 diferentes tipo de usuarios para probar la aplicación</p>
  <p align="center">
-   <img width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/2-inicio.gif">
+   <img width=200 src="https://github.com/EmmaVZ89/Control-de-Gastos-PPS/blob/main/readme/2-inicio.gif">
+ </p>
+ <hr>
+  
+ <hr>
+ <h2 align="center">CARGA DE SUELDO Y PORCENTAJE</h2>
+ <p align="center">
+   <img width=200 src="https://github.com/EmmaVZ89/Control-de-Gastos-PPS/blob/main/readme/3-carga-sueldo.gif">
+ </p>
+ <hr>
+ 
+  <hr>
+ <h2 align="center">CARGA DE GASTOS</h2>
+ <p align="center">
+   <img width=200 src="https://github.com/EmmaVZ89/Control-de-Gastos-PPS/blob/main/readme/4-carga-gasto.gif">
  </p>
  <hr>
   
   <hr>
- <h2 align="center">MENU LATERAL</h2>
+ <h2 align="center">CHART GASTOS</h2>
  <p align="center">
-   <img width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/3-menu.gif">
+   <img width=200 src="https://github.com/EmmaVZ89/Control-de-Gastos-PPS/blob/main/readme/5-chart-gastos.gif">
  </p>
  <hr>
- 
- <hr>
- <h2 align="center">PERSONAJES DC</h2>
- <p align="center">
-   <img width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/4-dc.gif">
-   <img width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/5-juego-dc.gif">
- </p>
- <hr>
- 
+  
   <hr>
- <h2 align="center">PERSONAJES MARVEL</h2>
+ <h2 align="center">CHART AHORRO/GASTOS</h2>
  <p align="center">
-   <img width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/6-marvel.gif">
-   <img width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/7-juego-marvel.gif">
+   <img width=200 src="https://github.com/EmmaVZ89/Control-de-Gastos-PPS/blob/main/readme/6-chart-ahorro.gif">
  </p>
  <hr>
 
  
  <hr>
  <h2 align="center">VISTAS</h2>
- <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/8%20inicio.png">
- <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/9%20principal.png">
- <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/10%20menu%20tabla.png">
- <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/11%20dc.png">
- <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/12%20juego%20dc.png">
- <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/13%20game%20over%20dc.png">
- <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/14%20marvel.png">
- <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/15%20juego%20marvel.png">
- <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/16%20game%20over%20marvel.png">
+ <img align="left" width=200 src="https://github.com/EmmaVZ89/Control-de-Gastos-PPS/blob/main/readme/7%20inicio.png">
+ <img align="left" width=200 src="https://github.com/EmmaVZ89/Control-de-Gastos-PPS/blob/main/readme/8%20sueldo.png">
+ <img align="left" width=200 src="https://github.com/EmmaVZ89/Control-de-Gastos-PPS/blob/main/readme/9%20gastos.png">
+ <img align="left" width=200 src="https://github.com/EmmaVZ89/Control-de-Gastos-PPS/blob/main/readme/10%20chart%20gastos.png">
+ <img align="left" width=200 src="https://github.com/EmmaVZ89/Control-de-Gastos-PPS/blob/main/readme/11%20chart%20ahorro.png">
  
  
